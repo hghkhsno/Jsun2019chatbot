@@ -13,17 +13,13 @@ namespace Microsoft.BotBuilderSamples.Bots
     {
         protected override async Task OnMessageActivityAsync(ITurnContext<IMessageActivity> turnContext, CancellationToken cancellationToken)
         {
-            var replyText = $"Echo測試: {turnContext.Activity.Text}";
+            var replyText = $"\u您的股票 {turnContext.Activity.Text} \u的網址是 https://tw.stock.yahoo.com/q/bc?s={turnContext.Activity.Text}";
             await turnContext.SendActivityAsync(MessageFactory.Text(replyText, replyText), cancellationToken);
         }
 
         protected override async Task OnMembersAddedAsync(IList<ChannelAccount> membersAdded, ITurnContext<IConversationUpdateActivity> turnContext, CancellationToken cancellationToken)
         {
-<<<<<<< HEAD
-            var welcomeText = "Hello and wadasdae!";
-=======
-            var welcomeText = "Hello hey hey!";
->>>>>>> 15e65edad22256b97ad867ebcc06905a3c6d5ce5
+            var welcomeText = "Hello welcome to use our System!";
             foreach (var member in membersAdded)
             {
                 if (member.Id != turnContext.Activity.Recipient.Id)
